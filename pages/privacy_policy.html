@@ -194,6 +194,20 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script>
+      // Disable right-click context menu
+document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
+
+// Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74 || event.keyCode === 67)) {
+        event.preventDefault();
+    }
+});
+
+    </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
