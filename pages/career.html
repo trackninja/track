@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="static/favicon.png">
+  <meta name="description" content="TrackNinja Pvt Ltd offers innovative IoT, embedded systems, and web development solutions. We specialize in e-commerce platforms and serve clients in Nagpur, Pune, Wardha, Bangalore, Jaipur, and beyond. Contact us to enhance your digital presence!">
+  <title>TrackNinja Pvt Ltd</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <h2 style="color:#f97233;">TrackNinja</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary custom-button"
+              href="career.html">We're Hiring !</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation End -->
+
+  <!-- Job Openings and Internship Sections -->
+  <div class="container mt-5">
+    <h2>Job Openings</h2>
+    <div id="jobOpeningsAccordion" class="accordion"></div>
+    <hr>
+    <h2>Internship Opportunities</h2>
+    <div id="internshipAccordion" class="accordion"></div>
+  </div>
+
+  <br>
+  <br>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start text-dark">
+    <div class="container p-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-12">
+          <h5 class="text-uppercase">TrackNinja Pvt Ltd</h5>
+          <p>Crafted with ❤️ by TrackNinja. All rights reserved.</p>
+          <ul class="list-inline">
+            <li class="list-inline-item list-inline-item a"><a href="#">About Us</a></li>
+            <li class="list-inline-item"><a href="#">Career</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="#">Team</a></li>
+            <li class="list-inline-item"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: black;">&copy; 2024 TrackNinja Pvt Ltd</div>
+  </footer>
+
+  <!-- Bootstrap JavaScript libraries -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Sample data for job openings and internships
+    let jobOpenings = [
+      { title: "Front-End Developer", description: `Design and develop user interfaces using HTML, CSS, and JavaScript.<br>
+      <ul>
+          <li>Experience with React.js</li>
+          <li>Proficiency in CSS3</li>
+          <li>Familiarity with Tailwind CSS</li>
+          <li>Ability to work with Figma for design collaboration</li>
+          <li>Experience in API integration</li>
+          <li>Knowledge of responsive design principles</li>
+      </ul>` },
+      { title: "Back-End Developer", description: `Develop server-side logic using Python, Django, and database technologies.<br>
+      <ul>
+          <li>Proficiency in Python programming language</li>
+          <li>Experience with Django framework</li>
+          <li>Knowledge of database technologies (e.g., SQL, PostgreSQL, MongoDB)</li>
+          <li>Implement CRUD (Create, Read, Update, Delete) operations</li>
+          <li>Create RESTful APIs for client-server communication</li>
+      </ul>` },
+      { title: "Business Consultant (Sales)",  description: `<ul>
+          <li>Analyze market trends to identify opportunities and threats</li>
+          <li>Develop effective sales strategies to achieve targets</li>
+          <li>Build and maintain strong client relationships</li>
+          <li>Provide insights and recommendations based on market analysis</li>
+          <li>Collaborate with cross-functional teams to optimize sales processes</li>
+      </ul>` },
+      { title: "Business Consultant (Operations)", description: `Analyze market trends, develop sales strategies, and foster client relationships.<br>
+      <ul>
+          <li>Analyze market trends to identify opportunities and threats</li>
+          <li>Develop effective sales strategies to achieve targets</li>
+          <li>Build and maintain strong client relationships</li>
+          <li>Provide insights and recommendations based on market analysis</li>
+          <li>Collaborate with cross-functional teams to optimize sales processes</li>
+      </ul>` }
+    ];
+
+    let internships = [
+        {
+            title: "Software Engineering Intern",
+            description: `Assist in software development projects, learn industry best practices, and gain hands-on experience.<br>
+                          <ul>
+                              <li>Work closely with senior developers on software projects</li>
+                              <li>Learn and apply industry best practices in software engineering</li>
+                              <li>Participate in coding, testing, and debugging activities</li>
+                              <li>Gain exposure to different phases of software development lifecycle</li>
+                              <li>Collaborate with team members to deliver high-quality software solutions</li>
+                          </ul>`
+        },
+        {
+            title: "Marketing Intern",
+            description: `Support marketing campaigns, analyze market data, and contribute to branding efforts.<br>
+                          <ul>
+                              <li>Assist in the execution of marketing campaigns across various channels</li>
+                              <li>Analyze market data to identify trends and consumer behavior</li>
+                              <li>Contribute creative ideas to enhance branding efforts</li>
+                              <li>Assist in the creation of marketing materials such as social media posts and newsletters</li>
+                              <li>Collaborate with the marketing team to achieve campaign objectives</li>
+                          </ul>`
+        }
+    ];
+
+
+    function createAccordionItem(title, description, parentId, index) {
+      // Create card
+      let card = document.createElement("div");
+      card.className = "card";
+
+      // Create card header
+      let cardHeader = document.createElement("div");
+      cardHeader.className = "card-header";
+
+      // Create button
+      let button = document.createElement("button");
+      button.className = "btn btn-link ";
+      button.type = "button";
+      button.setAttribute("data-toggle", "collapse");
+      button.setAttribute("data-target", "#" + parentId + "Collapse" + index);
+      button.setAttribute("aria-expanded", "false");
+      button.innerText = title;
+
+      // Append button to card header
+      cardHeader.appendChild(button);
+
+      // Create collapse div
+      let collapse = document.createElement("div");
+      collapse.id = parentId + "Collapse" + index;
+      collapse.className = "collapse";
+      collapse.setAttribute("aria-labelledby", parentId + "Heading" + index);
+
+      // Create card body
+      let cardBody = document.createElement("div");
+      cardBody.className = "card-body";
+      cardBody.innerHTML = description; // Use innerHTML to render HTML markup
+
+      // Create Submit Resume button
+      let submitButton = document.createElement("button");
+      submitButton.className = "btn btn-primary custom-button";
+      submitButton.innerText = "Submit Resume";
+
+      // Append Submit Resume button to card body
+      cardBody.appendChild(document.createElement("br"));
+      cardBody.appendChild(submitButton);
+
+      // Append card body to collapse div
+      collapse.appendChild(cardBody);
+
+      // Append card header and collapse to card
+      card.appendChild(cardHeader);
+      card.appendChild(collapse);
+
+      // Append card to parent element
+      document.getElementById(parentId).appendChild(card);
+
+      // Add event listener to collapse element to close other accordion items
+      collapse.addEventListener('show.bs.collapse', function () {
+        let allCollapseElements = document.querySelectorAll('.collapse.show');
+        allCollapseElements.forEach(function (element) {
+          if (element.id !== collapse.id) {
+            element.classList.remove('show');
+            let button = document.querySelector('[data-target="#' + element.id + '"]');
+            if (button) {
+              button.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      });
+
+      // Add event listener to collapse element to toggle state if already opened
+      collapse.addEventListener('hide.bs.collapse', function () {
+        let isOpen = collapse.classList.contains('show');
+        let button = document.querySelector('[data-target="#' + collapse.id + '"]');
+        if (button) {
+          button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      });
+    }
+
+    // Function to populate job openings
+    function populateJobOpenings() {
+      let jobOpeningsAccordion = document.getElementById("jobOpeningsAccordion");
+      jobOpenings.forEach((job, index) => { 
+        createAccordionItem(job.title, job.description, "jobOpeningsAccordion", index);
+      });
+    }
+
+    // Function to populate internships
+    function populateInternships() {
+      let internshipAccordion = document.getElementById("internshipAccordion");
+      internships.forEach((internship, index) => { 
+        createAccordionItem(internship.title, internship.description, "internshipAccordion", index); 
+      });
+    }
+
+    // Populate job openings and internships on page load
+    window.onload = function () {
+      populateJobOpenings();
+      populateInternships();
+    };
+  </script>
+
+
+   
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TrackNinja Pvt Ltd",
+      "url": "https://www.trackninja.com",
+      "logo": "https://www.trackninja.com/static/favicon.png",
+      "description": "Leading provider of web development, IoT, and embedded systems solutions in Nagpur, Pune, Wardha, Bangalore, Jaipur, and beyond."
+    }
+  </script>
+</body>
+</html>

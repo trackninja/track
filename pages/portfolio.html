@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="static/favicon.png">
+  <meta name="description"
+    content="TrackNinja Pvt Ltd offers innovative IoT, embedded systems, and web development solutions. We specialize in e-commerce platforms and serve clients in Nagpur, Pune, Wardha, Bangalore, Jaipur, and beyond. Contact us to enhance your digital presence!">
+  <title>TrackNinja Pvt Ltd</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <h2 style="color:#f97233;">TrackNinja</h2>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary" style="background-color: #f97233; color: white; border:none;"
+            href="career.html">We're Hiring !</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navigation End -->
+  <!-- Portfolio section start -->
+  <style>
+    .card {
+      margin: 10px;
+      /* Add standard margin to each card */
+    }
+  </style>
+  <div class="container">
+    <h4>Portfolio</h4>
+    <div class="row" id="cardRow"></div>
+  </div>
+
+  <!-- Modals -->
+  <div id="modals"></div>
+
+  <script>
+    // Sample JSON data
+    const jsonData = [
+      {
+        "imgSrc": "../static/4.png",
+        "title": "Drivetrain Prototype - (CSS & JS)",
+        "text": "Ever wondered how power travels from the engine to the wheels of a vehicle? Enter our miniature drivetrain prototype!"
+      },
+      {
+        "imgSrc": "../static/5.png",
+        "title": "Dynamic dashboard - (React js & Django)",
+        "text": "Through seamless integration of React.js and Django, our team engineered a powerful dashboard for streamlined service management."
+      },
+      {
+        "imgSrc": "../static/9.png",
+        "title": "Custom Logo Design",
+        "text": "Crafting unique and memorable logos tailored to your brand's identity, leaving a lasting impression."
+      },
+      {
+        "imgSrc": "../static/6.png",
+        "title": "Drag & Drop - Kanban Board",
+        "text": "Experience streamlined project tracking with our intuitive Drag & Drop Kanban Board, designed to elevate efficiency and collaboration"
+      },
+      {
+        "imgSrc": "../static/7.png",
+        "title": "Esp32 - GPS tracker",
+        "text": "Combining ESP32's versatility with GPS technology, our project delivers accurate positioning for various applications."
+      }
+
+      // Add more JSON objects as needed
+    ];
+
+    // Function to create a card element
+    function createCard(data, index) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.style.width = '18rem';
+
+      card.innerHTML = `
+        <img src="${data.imgSrc}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${data.title}</h5>
+          <p class="card-text">${data.text}</p>
+          <button class="btn btn-primary expand-button custom-button" data-index="${index}">Expand</button>
+        </div>
+      `;
+
+      return card;
+    }
+
+    // Function to create a modal element
+    function createModal(data, index) {
+      const modal = document.createElement('div');
+      modal.classList.add('modal', 'fade');
+      modal.setAttribute('id', `portfolioModal${index}`);
+      modal.setAttribute('tabindex', '-1');
+      modal.setAttribute('aria-labelledby', `portfolioModalLabel${index}`);
+      modal.setAttribute('aria-hidden', 'true');
+
+      modal.innerHTML = `
+        <div class="modal-dialog modal-fullscreen-xxl-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="portfolioModalLabel${index}">${data.title}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="${data.imgSrc}" class="card-img-top" alt="...">
+              <p class="card-text">${data.text}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      return modal;
+    }
+
+    // Function to render cards and modals
+    function renderCards() {
+      const cardRow = document.getElementById('cardRow');
+      const modalsContainer = document.getElementById('modals');
+      cardRow.innerHTML = ''; // Clear existing cards
+      modalsContainer.innerHTML = ''; // Clear existing modals
+
+      for (let i = 0; i < jsonData.length; i++) {
+        const card = createCard(jsonData[i], i);
+        const modal = createModal(jsonData[i], i);
+
+        cardRow.appendChild(card);
+        modalsContainer.appendChild(modal);
+      }
+
+      // Add click event listeners to expand buttons
+      const expandButtons = document.querySelectorAll('.expand-button');
+      expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const index = button.getAttribute('data-index');
+          $('#portfolioModal' + index).modal('show');
+        });
+      });
+    }
+
+    // Render cards and modals on page load
+    window.onload = renderCards;
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start text-dark">
+    <div class="container p-4">
+      <div class="row justify-content-center"> <!-- Center the content horizontally -->
+        <div class="col-lg-6 col-md-12">
+          <h5 class="text-uppercase">TrackNinja Pvt Ltd</h5>
+          <p>
+            Crafted with ❤️ by TrackNinja. All rights reserved.
+          </p>
+
+          <ul class="list-inline">
+            <li class="list-inline-item list-inline-item a"><a href="pages/about.html">About Us</a></li>
+            <li class="list-inline-item"><a href="pages/career.html">Career</a></li>
+            <li class="list-inline-item"><a href="pages/privacy_policy.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="pages/team.html">Team</a></li>
+            <li class="list-inline-item"><a href="pages/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: black;">
+      &copy; 2024 TrackNinja Pvt Ltd
+    </div>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TrackNinja Pvt Ltd",
+    "url": "https://www.trackninja.com",
+    "logo": "https://www.trackninja.com/static/favicon.png",
+    "description": "Leading provider of web development, IoT, and embedded systems solutions in Nagpur, Pune, Wardha, Bangalore, Jaipur, and beyond."
+  }
+  </script>
+</body>
+
+</html>
